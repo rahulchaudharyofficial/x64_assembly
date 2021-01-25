@@ -1,0 +1,41 @@
+     1                                  ;alive.asm
+     2                                  
+     3                                  section .data
+     4 00000000 48656C6C6F20576F72-         msg1 db "Hello World!",10,0 ;String with NL and 0
+     4 00000009 6C64210A00         
+     5                                      msg1Len equ $-msg1-1 ;Measure the length of msg1 minus the 0
+     6                                  
+     7 0000000E 416C69766520616E64-         msg2 db "Alive and Kicking!",10,0 ; String with New Line and 0
+     7 00000017 204B69636B696E6721-
+     7 00000020 0A00               
+     8                                      msg2Len equ $-msg2-1
+     9 00000022 6501000000000000            radius dq 357 ;No string, not displayable?
+    10 0000002A 1F85EB51B81E0940            pi dq 3.14 ; No String, not displayable?
+    11                                  
+    12                                  section .bss
+    13                                  
+    14                                  section .text
+    15                                      global main
+    16                                  
+    17                                  main:
+    18 00000000 55                          push rbp ;function proposed
+    19 00000001 4889E5                      mov rbp, rsp ; fuction proposed
+    20 00000004 B801000000                  mov rax, 1 ; write
+    21 00000009 BF01000000                  mov rdi, 1 ; write to stdout
+    22 0000000E 48BE-                       mov rsi, msg1; string to display
+    22 00000010 [0000000000000000] 
+    23 00000018 BA0D000000                  mov rdx, msg1Len ; length of string
+    24 0000001D 0F05                        syscall
+    25                                  
+    26 0000001F B801000000                  mov rax, 1
+    27 00000024 BF01000000                  mov rdi, 1
+    28 00000029 48BE-                       mov rsi, msg2
+    28 0000002B [0E00000000000000] 
+    29 00000033 BA13000000                  mov rdx, msg2Len
+    30 00000038 0F05                        syscall
+    31                                  
+    32 0000003A 4889EC                      mov rsp, rbp
+    33 0000003D 5D                          pop rbp
+    34 0000003E B83C000000                  mov rax, 60,
+    35 00000043 BF00000000                  mov rdi, 0
+    36 00000048 0F05                        syscall
