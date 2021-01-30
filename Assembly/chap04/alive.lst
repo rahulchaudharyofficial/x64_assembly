@@ -9,8 +9,8 @@
      7 00000017 204B69636B696E6721-
      7 00000020 0A00               
      8                                      msg2Len equ $-msg2-1
-     9 00000022 6501000000000000            radius dq 357 ;No string, not displayable?
-    10 0000002A 1F85EB51B81E0940            pi dq 3.14 ; No String, not displayable?
+     9 00000022 6501                        radius dw 357 ;No string, not displayable?
+    10 00000024 4842                        pi dw 3.14 ; No String, not displayable?
     11                                  
     12                                  section .bss
     13                                  

@@ -6,8 +6,8 @@ section .data
 
     msg2 db "Alive and Kicking!",10,0 ; String with New Line and 0
     msg2Len equ $-msg2-1
-    radius dq 357 ;No string, not displayable?
-    pi dq 3.14 ; No String, not displayable?
+    radius dw 357 ;No string, not displayable?
+    pi dw 3.14 ; No String, not displayable?
 
 section .bss
 
